@@ -8,14 +8,14 @@ $(document).ready ->
     setSidebarPos()
 
   $sidebar = $('.sidebar')
-  setSidebarPos = ->
+  setSidebarPos = -> 
     if $(window).scrollTop() + $sidebar.height() > $('.container').height() # goes off the bottom
       $sidebar.css top: 'auto', bottom: $('.container').css('marginBottom')
     else if $(window).scrollTop() is 0 #hits the top
       $sidebar.scrollTop
       $sidebar.css bottom: 'auto'
     else # default
-      $sidebar.css top: 0, bottom: 'auto'
+      $sidebar.css top: 0, bottom: 'auto'  
 
   # little square fixed to the bottom right / toggles hiding showing all the examples... just in case.
   $('body').append('<a id="expand-all-the-things"></a>')
@@ -29,12 +29,12 @@ $(document).ready ->
   # expandable code snippets
   $('.console-session').each ->
     if $(@).has('h4 + pre')
-      $header = $(this).find('h4')
+      $header = $(@).find('h4').addClass('snippet-closed')
       $header.addClass('expandable').toggle ->
-        # $(@).toggleClass('snippet-closed')
+        $(@).toggleClass('snippet-closed')
         $(@).parent().find('pre:first').slideDown('fast')
       , ->
-        # $(@).toggleClass('snippet-closed')
+        $(@).toggleClass('snippet-closed')
         $(@).parent().find('pre:first').hide()
 
   # should be addressed in the html:
