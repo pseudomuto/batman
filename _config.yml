@@ -1,9 +1,9 @@
 pygments: true
 download:
-    version: 0.11.2
-    date: "July 17th, 2012"
-    size: 42b minified and gzipped
-    blurb: Patch release addressing some recent bugs.
+    version: 0.14.0
+    date: "February 14th, 2013"
+    size: 40kb minified and gzipped
+    blurb: "Massive stability update: performance and bugfixes."
 examples:
     - title: Hello World
       url: '/hello_world.html'

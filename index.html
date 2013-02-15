@@ -10,29 +10,28 @@ use_intro: true
     <h2>Here's some code:</h2>
 {% highlight coffeescript %}
 class Shopify extends Batman.App
-  @root 'products#index'
   @resources 'products'
+  @root 'products#index'
 
 class Shopify.Product extends Batman.Model
   @persist Batman.RestStorage
 
 class Shopify.ProductsController extends Batman.Controller
   index: ->
-    @redirect action: 'show', id: 1
+    @products = Shopify.Product.get('all')
 
   show: (params) ->
-    @product = Shopify.Product.find params.id
+    @product = Shopify.Product.find(params.id)
 {% endhighlight %}
 
   <h4>views/products/index.html</h4>
 {% highlight html %}
 <ul id="products">
-  <li data-foreach-product="Product.all" data-mixin="animation">
-    <a data-route="product" data-bind="product.name">name will go here</a>
+  <li data-foreach-product="products">
+    <a data-route="product" data-bind="product.name">this text will be replaced with product.name</a>
   </li>
 
   <li>
-    <span data-bind="products.length"></span>
     <span data-bind="'products' | pluralize products.length"></span>
   </li>
 </ul>
