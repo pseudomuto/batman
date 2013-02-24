@@ -58,7 +58,6 @@ layout: default
 
     <script type="text/coffeescript">
       class Hello extends Batman.App
-        @global yes
 
       class Person extends Batman.Model
         @accessor 'fullName', -> "#{@get('firstName')} #{@get('lastName')}"
