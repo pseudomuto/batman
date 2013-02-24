@@ -8,16 +8,16 @@ layout: default
 
 <!-- Begin content-column-wrapper -->
 <div id="content-column-wrapper">
-  
+
   <h2>Hello World</h2>
   <p>Literally the simplest example of using batman.js data bindings. I'm not even going to bother writing a description.</p>
   {% capture launch_links %}
   <p><a href="/examples/hello.html">Launch Demo</a>. The completed code can be found in the <a href="http://github.com/Shopify/batman/blob/master/examples/hello.html">repo</a>.</p>
   {% endcapture %}
   {{ launch_links }}
-  
+
   <h4>Layout and Application</h4>
-  
+
   {% highlight html %}
 <!DOCTYPE html>
 <html>
@@ -62,11 +62,11 @@ layout: default
       class Person extends Batman.Model
         @accessor 'fullName', -> "#{@get('firstName')} #{@get('lastName')}"
         @accessor 'hasName', -> @get('fullName').length > 1
-        
+
         reset: =>
           @set 'firstName', ''
           @set 'lastName', ''
-      
+
       Hello.person = new Person
       Hello.run()
     </script>
@@ -77,6 +77,6 @@ layout: default
 
   <h4>Fin</h4>
   {{ launch_links }}
-  
+
 </div>
 <!-- End content-column-wrapper -->
