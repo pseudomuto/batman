@@ -79,21 +79,21 @@ class Alfred.Todo extends Batman.Model
 class Alfred.TodosController extends Batman.Controller
   index: ->
     # setup a binding for the new form
-    @set 'emptyTodo', new Todo
+    @set 'emptyTodo', new Alfred.Todo
 
     # add some example todos to show off.
-    Todo.load (todos) ->
+    Alfred.Todo.load (todos) ->
       if not todos.length
-        new Todo(body: 'joker escaped arkham again', isDone: true).save()
-        new Todo(body: 'riddler sent riemann hypothesis').save()
-        new Todo(body: 'bane wants to meet, not worried').save()
+        new Alfred.Todo(body: 'joker escaped arkham again', isDone: true).save()
+        new Alfred.Todo(body: 'riddler sent riemann hypothesis').save()
+        new Alfred.Todo(body: 'bane wants to meet, not worried').save()
 
     # prevent the implicit render of views/todos/index.html
     @render false
 
   create: =>
     @emptyTodo.save =>
-      @set 'emptyTodo', new Todo
+      @set 'emptyTodo', new Alfred.Todo
 
 
 # Start the app
@@ -102,7 +102,7 @@ Alfred.run()
 
   <h4>Bindings</h4>
   <p>Finally, we can now setup our HTML to bind to our working application. This makes everything come to live, with no additional code!</p>
-  <p>We start by iterating over Todo.all (a copy of this li will be made for each item, and whenever a new item is added). The iterated item will be available under the key we specify, in this case <code>todo</code>.</p>
+  <p>We start by iterating over Alfred.Todo.all (a copy of this li will be made for each item, and whenever a new item is added). The iterated item will be available under the key we specify, in this case <code>todo</code>.</p>
   {% highlight html %}
 <ul id="items">
   <li data-foreach-todo="Todo.all">
