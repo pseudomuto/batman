@@ -1,6 +1,6 @@
 Batman.config.minificationErrors = false
 
-class Alfred extends Batman.App
+class window.Alfred extends Batman.App
   @root 'todos#all'
   @route "/completed", "todos#completed"
   @route "/active", "todos#active"
@@ -81,5 +81,4 @@ class Alfred.Todo extends Batman.Model
   @wrapAccessor 'title', (core) ->
     set: (key, value) -> core.set.call(@, key, value?.trim())
 
-window.Alfred = Alfred
 Alfred.run()
