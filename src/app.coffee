@@ -21,6 +21,7 @@ class Batman.App extends Batman.Object
     'final': true
 
   @classAccessor 'routes', -> new Batman.NamedRouteQuery(@get('routeMap'))
+  @classAccessor 'url_for', -> @get('routes')
   @classAccessor 'routeMap', -> new Batman.RouteMap
   @classAccessor 'routeMapBuilder', -> new Batman.RouteMapBuilder(@, @get('routeMap'))
   @classAccessor 'dispatcher', -> new Batman.Dispatcher(@, @get('routeMap'))
